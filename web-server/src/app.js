@@ -9,7 +9,10 @@ app.set('view engine', 'hbs');
 app.use(express.static(publicPath));
 
 app.get('/', (req, res)=>{
-    res.render('index')
+    res.render('index', {
+        title: 'My Dashboard',
+        name: 'Deep S'
+    })
 })
 
 app.listen(port, () => {
