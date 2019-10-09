@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express');
+const hbs = require('hbs');
 
 const app = express();
 
@@ -8,12 +9,14 @@ const port = 3000;
 
 //path for express config
 const publicPath = path.join(__dirname, '../public');
-const viewPath = path.join(__dirname, '../templates');
+const viewPath = path.join(__dirname, '../templates/views');
+const partialsPath=path.join(__dirname, '../templates/partials')
 
 
 //set up handlebars engine and views location
 app.set('view engine', 'hbs');
 app.set('views', viewPath);
+hbs.registerPartials(partialsPath);
 
 //static directory to serve
 app.use(express.static(publicPath));
@@ -21,7 +24,7 @@ app.use(express.static(publicPath));
 app.get('/', (req, res)=>{
     res.render('index', {
         title: 'My Dashboard',
-        name: 'Deep S'
+        description: 'I am a Software Developer'
     })
 })
 
@@ -34,8 +37,8 @@ app.get('/about', (req, res)=>{
 
 app.get('/help', (req, res)=>{
     res.render('help', {
-        title: 'Get Help',
-        message: 'How may I help you?'
+        title: 'Need Help?',
+        description: 'Please contact me at deepsinghh.js@gmail.com'
     })
 })
 
