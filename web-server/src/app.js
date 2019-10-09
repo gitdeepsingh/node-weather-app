@@ -2,10 +2,20 @@ const path = require('path')
 const express = require('express');
 
 const app = express();
-const port = 3000;
-const publicPath = path.join(__dirname, '../public');
 
+//define port
+const port = 3000;
+
+//path for express config
+const publicPath = path.join(__dirname, '../public');
+const viewPath = path.join(__dirname, '../templates');
+
+
+//set up handlebars engine and views location
 app.set('view engine', 'hbs');
+app.set('views', viewPath);
+
+//static directory to serve
 app.use(express.static(publicPath));
 
 app.get('/', (req, res)=>{
