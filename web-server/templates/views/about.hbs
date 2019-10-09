@@ -2,14 +2,18 @@
 <html>
 
 <head>
+    <title>About</title>
+    <link rel="icon" href="/assets/logo.jpg" />
     <link rel="stylesheet" href="./css/styles.css" />
     <script src="./js/index.js"></script>
 </head>
 
 <body>
-    {{>header}}
-    <img src="assets/avatar.png" width="200"/>
-    <p>{{description}}</p>
+    <div class="main-container">
+        {{>header}}
+        <img src="assets/avatar.png" width="200" />
+        <p>{{description}}</p>
+    </div>
     {{>footer}}
 </body>
 
