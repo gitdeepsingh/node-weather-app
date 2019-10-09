@@ -15,6 +15,20 @@ app.get('/', (req, res)=>{
     })
 })
 
+app.get('/about', (req, res)=>{
+    res.render('about', {
+        title: 'About Me',
+        description: 'This is my porfolio.'
+    })
+})
+
+app.get('/help', (req, res)=>{
+    res.render('help', {
+        title: 'Get Help',
+        message: 'How may I help you?'
+    })
+})
+
 app.listen(port, () => {
     console.log('Server is up on port ', port)
 })
