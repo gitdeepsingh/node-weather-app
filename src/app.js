@@ -66,7 +66,7 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title: 'Assistance',
+        title: 'Help',
         description: 'Enter the location you want to forecast the weather for and click Search.'
     })
 })
