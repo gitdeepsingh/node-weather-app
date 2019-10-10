@@ -2,8 +2,8 @@ const request = require('request');
 
 const token = '765ddcafd93200cabfecb72c20a7fcd1';
 
-const forecast = (coordinates, cb) => {
-    const { latitude, longitude } = coordinates;
+const forecast = (data, cb) => {
+    const { latitude, longitude, location } = data;
     const url = `https://api.darksky.net/forecast/${token}/${latitude},${longitude}?units=si`;
     request({ url: url, json: true }, (err, res) => {
         if (err) {
@@ -12,7 +12,11 @@ const forecast = (coordinates, cb) => {
             cb('Location not found!', undefined)
         } else {
             cb(undefined, {
-                temperature: res.body.currently.temperature
+                location,
+                forecast: res.body.daily.summary,
+                minTempOfTheDay: res.body.daily.data[0].temperatureMin,
+                maxTempOfTheDay: res.body.daily.data[0].temperatureMax,
+                temperatureNow: res.body.currently.temperature,
             })
         }
     });

@@ -11,11 +11,11 @@ if(!address){
             console.log(chalk.red('Error: ', err));
         }
         console.log('Geolocation Data: ', res);
-        forecast(res, (err, res)=>{
+        forecast(res, (err, data)=>{
             if(err){
             console.log(chalk.red('Error: ', err));
             }
-            console.log('Weather Data: ', res)
+            console.log('Weather Data: ', data)
         })
     });    
 }

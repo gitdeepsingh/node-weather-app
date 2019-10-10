@@ -1,3 +1,52 @@
-h1 {
-    color: blueviolet;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 5px 16px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
 }
+
+.main-container {
+    flex-grow: 1;
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid #eeeeee;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header {
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+
+header a{
+    margin-right: 16px;
+    text-decoration: none;
+    color: #888888;
+}
+
+input {
+    border: 1px solid #cccccc;
+    outline: none;
+    padding: 8px;
+    border-radius: 17px;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #888888;
+    background: #888888;
+    color: #fff;
+    padding: 8px;
+    border-radius: 17px;
+}
+
