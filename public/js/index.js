@@ -14,7 +14,7 @@ weatherForm.addEventListener('submit', (e) => {
         res.json().then((data) => {
             const weather = data.report
             if (!data.error) {
-                messageOne.textContent = weather.location;
+                messageOne.textContent = `${weather.location} is currently at ${weather.temperatureNow}°C`;
                 messageTwo.textContent = weather.forecast;
             } else {
                 messageOne.textContent = data.error;
