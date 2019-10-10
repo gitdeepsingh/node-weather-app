@@ -10,7 +10,7 @@ const port = 3000;
 //path for express config
 const publicPath = path.join(__dirname, '../public');
 const viewPath = path.join(__dirname, '../templates/views');
-const partialsPath = path.join(__dirname, '../templates/partials')
+const partialsPath = path.join(__dirname, '../templates/partials');
 
 
 //set up handlebars engine and views location
@@ -23,8 +23,21 @@ app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
     res.render('index', {
-        title: 'My Dashboard',
-        description: 'I am a Software Developer'
+        title: 'Weather',
+        description: 'Weather Report'
+    })
+})
+
+
+app.get('/weather', (req,res)=>{
+    if(!req.query.address){
+        return res.send({
+            error: 'You must provide an address.'
+        })
+    }
+    res.send({
+        forecast: 'It is raining',
+        address: req.query.address
     })
 })
 
@@ -41,6 +54,7 @@ app.get('/help', (req, res) => {
         description: 'Please contact me at deepsinghh.js@gmail.com'
     })
 })
+
 
 app.get('/help/*', (req, res) => {
     res.render('404', {
