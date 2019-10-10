@@ -33,3 +33,20 @@ header a{
     color: #888888;
 }
 
+input {
+    border: 1px solid #cccccc;
+    outline: none;
+    padding: 8px;
+    border-radius: 17px;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #888888;
+    background: #888888;
+    color: #fff;
+    padding: 8px;
+    border-radius: 17px;
+}
+

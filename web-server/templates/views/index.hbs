@@ -5,15 +5,26 @@
     <title>Home</title>
     <link rel="icon" href="/assets/logo.jpg" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <script src="./js/index.js"></script>
 </head>
 
 <body>
     <div class="main-container">
         {{>header}}
         <p>{{description}}</p>
+
+        <form>
+            <input type="text" placeholder="Enter location" />
+            <button>Search</button>
+        </form>
+
+        <div class="report">
+            <p id="message-1"></p>
+            <p id="message-2"></p>
+        </div>
     </div>
     {{>footer}}
+
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

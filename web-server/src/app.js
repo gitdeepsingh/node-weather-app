@@ -23,28 +23,23 @@ hbs.registerPartials(partialsPath);
 //static directory to serve
 app.use(express.static(publicPath));
 
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Weather',
-        description: 'Weather Report'
-    })
-})
 
+// setting up api's
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
-            Error: 'You must provide an address.'
+            error: 'You must provide an address.'
         })
     }
     geocode(req.query.address, (err, geoRes={}) => {
         if (err) {
             return res.send({
-                Error: err
+                error: err
             })
         } forecast(geoRes, (err, weather) => {
             if (err) {
                 return res.send({
-                    Error: err
+                    error: err
                 })
             }
             res.send({
@@ -52,20 +47,27 @@ app.get('/weather', (req, res) => {
             })
         })
     });
+})
 
+// rendering client-side
+app.get('/', (req, res) => {
+    res.render('index', {
+        title: 'Weather',
+        description: 'Forecast weather'
+    })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About Me',
-        description: 'This is my porfolio.'
+        title: 'About',
+        description: 'This is a simple application intended to provide weather forecast for a desired region.'
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        title: 'Need Help?',
-        description: 'Please contact me at deepsinghh.js@gmail.com'
+        title: 'Assistance',
+        description: 'Enter the location you want to forecast the weather for and click Search.'
     })
 })
 
